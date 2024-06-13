@@ -1,0 +1,32 @@
+installing express, mongoose,nodemon,dotenv
+-->writing basic server.js template
+-->writing code for database connection
+-->created bookSchema
+-->writing book.controller.js
+-->writing book.route.js{
+    imported the getBook function fromm book controller
+    write the route for get method at route="/"
+}
+-->go to server.js and import book route there
+-->transfering the data present in "list.json" to database
+
+******************--------------------**********************
+-->connecting frontend and backend using axios                  timestamp(2:51:17-3:03:21)
+
+-->authenticating and authorising user by login and signup      timestamp(3:04:10-3:18:09)
+   ##defining userSchema
+   ##defining controller for user for signup i.e addition of new user
+   ##defining routes 
+
+-->decrypting the password                                       timestamp(3:18:10-3:20::33)
+   ##install bcrypt in backend
+   ##use it in controller because vhin to apn isko use krke  password ko store krne se phle password ko  bcrpt kr denge
+
+-->creating signup controller and route(signup controller bhi user controller me hi likha hua hai) timestamp(3:21:00-3:28:15)
+    #defining the login controller
+    #defining the login route i user.route.js
+
+
+-->Integrating signup and login of backend with frontend (till )  
+
+-->Authenticatiion and authorisation  (3:45:45) onwards

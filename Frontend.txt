@@ -1,0 +1,154 @@
+## DaisyUI
+## freepik
+## React Slick
+
+
+GET STARTED WITH PROJECT:-
+step:1--> visit tailwind css official website and install tailwind css with create-react-app; 
+step:2--> clear app folder and generate boiler plate using rafce
+step:3--> install es-7 snippets from vs code and create components folder in src  directory
+
+USING PREDEFINED COMPONENTS:-
+we will use "DaisyUI" for this. It is component library of tailwind css
+**install this libraryinto our project
+
+//PART:1
+creating Navbar
+--> copy the jsx code of navbar and paste into navbar component
+--> Navbar contains list code 2 times-->one is for mobile other is for pc screen i.e reponsiveness
+--> since it was used 2 times so it is stored in the variable "navItems"
+--> fixed top-0 left-0 right-0  -->code to make navbar sticky
+
+creating searchbar
+--> copy the code of search bar from "DaisyUI"
+--> we do not want the search to be visible in mobile so we applied a class "hidden" in div containing searchbar which means medium ya usse bare device
+    ke liye searchbar dikhega
+
+creating theme controller
+--> It changes theme from dark to light and vice-versa
+
+importing "poppins" and "fredoka" font from google fonts
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+//PART:2
+CREATING BANNER OF HOMEPAGE:-we are going to build this manually
+   complete banner divided into 2 parts:- left and right
+   in case of desktop view --fkex is kept col
+   in case of mobile view  --flex is kept row
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+//PART:3
+CREATING FOOTER SECTION
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+//PART:4
+handling the shadow which appears on navbar  using "USESTATE" AND "USEEFFECT" hook when we scroll down
+    what "USEEFFECT" do ??
+    How does it work?
+    --You call useEffect with a callback function that contains the side effect logic.
+    --By default, this function runs after every render of the component.
+    --You can optionally provide a dependency array as the second argument.
+    --The effect will only run again if any of the values in the dependency array change.
+
+
+-----------CODE FOR ABOVE MENTIONED SHADOW HANDLING -------------
+const [sticky,setSticky]=useState(false);
+    useEffect(()=>{
+        const handleScroll=()=>{
+            if(window.scrollY>0){
+                setSticky(true);
+            }
+            else{
+                setSticky(false);
+            }
+        }
+
+        window.addEventListener('scroll',handleScroll);
+        return window.removeEventListener('scroll',handleScroll);
+    },[])
+
+Here's a step-by-step explanation for above code:
+
+1. useEffect Hook:
+   useEffect(() => {
+       // Your code here
+   }, []);
+   
+   The `useEffect` hook is used to perform side effects in function components. The empty dependency array `[]` means that this effect will only run once, similar to `componentDidMount` in class components.
+
+2. handleScroll Function:
+   const handleScroll = () => {
+       if (window.scrollY > 0) {
+           setSticky(true);
+       } else {
+           setSticky(false);
+       }
+   };
+   
+   This function checks the scroll position of the window. If the scroll position is greater than 0, it sets the `sticky` state to `true`. If the scroll position is 0 (meaning the user is at the top of the page), it sets the `sticky` state to `false`.
+
+3. Adding the Event Listener:
+   window.addEventListener('scroll', handleScroll);
+   This line adds the `handleScroll` function as an event listener for the `scroll` event on the `window` object. This means that every time the user scrolls, the `handleScroll` function will be called.
+
+4. Cleanup Function:
+   return window.removeEventListener('scroll', handleScroll);
+   The function returned from `useEffect` is a cleanup function that React will call when the component unmounts or before the effect runs again if the dependencies change (in this case, they never will because the dependency array is empty). It removes the scroll event listener to prevent memory leaks or unexpected behavior.
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+PART:5-CREATING CARD SECTION CONTAINING FREE COURSES
+--card me data show hone ke liye phle apne pas data to hona chhaiye n, let's create the data first in "list.json" file
+--image link in data is copied from freepik site
+--import the data file "list.json" into Freebook.js
+--now filter those data which belongs to free category because "Freebook.js" mein apne to sirf vhi data dikhana hai
+--now create the crousel/slider to display the card
+--For creating crousel/slider we are going to use "React Slick"
+          **settings of crousel responsive imported
+          **code of slider copied and pasted in Freebook component
+--now we will create a single card component
+        **we will pick up card from daisyUI.
+        **now we will use map function on filterdata in "Freebook" and will transfer data to card
+          as props
+
+        hover:scale-105 duration-200-->this code is used to create effect in card on hovering
+
+          **receive the data sent as props in Card component
+## WITH THIS WE COMPLETED OUR HOME PAGE
+
+********************---------------------***********************************------------------------------*********************************-----------------------------********************
+
+## COURSE PAGE CREATION
+--course page will also require navbar and footer ,so import it in "Courses.js"
+--other than navbar and footer it will require course component from components folder
+--let's design Course.js component now 
+--first of all we will require data in Course.js, to uske liye hum Courses.js me data import krake use as a props Course.js me bhej denge 
+ 
+
+ handling the div containing all cards:-
+ we will give this div the property of grid as follows:-
+    for medium and large screen devices; ek row me 4 dikhna chhaiye
+    for small screen size devices; ek row me ek hi dikhna chahiye
+
+--adding back functionality to back button using Link
+
+WITH THIS WE COMPLETED OUR COURSE SECTION
+*******************---------------------****************************************-----------------------------*************************************---------------------***********************
+
+ADDING DARKmode LIGHTmode functionality:-(timestamp--> 1:41:00 to 1:50:45)
+for this we will use USESTATE,USEEFFECT and local storage of browser
+let us move to Navbar component to add this functionality
+
+*****************----------------------************************************--------------------------------------------*************************************-------------------------------------------
+LET'S CREATE THE LOGIN AND SIGNUP PAGE
+part1:- creating modal --->we will import modal from daisyUI,jo ki login componentko open krke dikhega
+part2:- designing login form
+part3:- designing signup form
+       -->define the route for /signup
+
+//LET'S COLLECT THE DATA OF LOGIN FORM USING "REACT-HOOK-FORM" in Login.js component
+      -->react-hook-form installed
